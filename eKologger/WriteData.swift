@@ -15,8 +15,14 @@ class WriteData {
             switch char.characteristicDescriptionReadWriteMetods(characteris: char)!.write {
             case "datetime":
                 return (value as! Date).data
-            default:
+            case "uint32":
                 return UInt32((value as! UInt32)).data
+            case "uint8":
+                return UInt8((value as! UInt8)).data
+            case "int64":
+                return Int64((value as! Int64)).data
+            default:
+                return UInt8((value as! UInt8)).data
             }
         }
 }

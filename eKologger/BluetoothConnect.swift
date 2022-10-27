@@ -34,8 +34,9 @@ extension BluetoothManager: CBCentralManagerDelegate {
     func centralManager(_ central: CBCentralManager, didDiscover peripheral: CBPeripheral, advertisementData: [String : Any], rssi: NSNumber) {
         peripheral.delegate = self
         guard let nameString = peripheral.name else { return }
-//        print(nameString)
-        if (nameString == "eKologger") && !discoverPeripheral.contains(peripheral) && !successfulConnectPeripheral.contains(peripheral) {
+        
+        
+        if (nameString.nameStringEKolloger) && !discoverPeripheral.contains(peripheral) && !successfulConnectPeripheral.contains(peripheral) {
             discoverPeripheral.append(peripheral)
         }
         while discoverPeripheral.count != 0 {
@@ -56,6 +57,7 @@ extension BluetoothManager: CBCentralManagerDelegate {
     func centralManager(_ central: CBCentralManager, didDisconnectPeripheral peripheral: CBPeripheral, error: Error?) {
         print("disconnect \(peripheral.identifier)")
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: "disconnect"), object: nil)
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "readButtonHidden"), object: nil)
         print(error ?? "нет описания")
         //Убираем жесткую ссылку на соединение чтобы начать рескан
         successfulConnectPeripheral = successfulConnectPeripheral.filter({$0 != peripheral})
@@ -83,13 +85,50 @@ extension BluetoothManager: CBPeripheralDelegate  {
         for characteristic in characteristics {
             allCharacteristics.append(characteristic)
             settingsClass.readDateTime(characteristic: characteristic, peripheral: peripheral)
-            settingsClass.readTemp(characteristic: characteristic, peripheral: peripheral)
-            settingsClass.readHum(characteristic: characteristic, peripheral: peripheral)
-            settingsClass.readPress(characteristic: characteristic, peripheral: peripheral)
-            settingsClass.readTemp2(characteristic: characteristic, peripheral: peripheral)
-            settingsClass.readHum2(characteristic: characteristic, peripheral: peripheral)
-            settingsClass.readPress2(characteristic: characteristic, peripheral: peripheral)
-            settingsClass.readTest(characteristic: characteristic, peripheral: peripheral)
+            if characteristic.uuid == Temp.characteristicUUID {
+                peripheral.setNotifyValue(true, for: characteristic)
+            }
+//            settingsClass.readTemp(characteristic: characteristic, peripheral: peripheral)
+            if characteristic.uuid == Hum.characteristicUUID {
+                peripheral.setNotifyValue(true, for: characteristic)
+            }
+//            settingsClass.readHum(characteristic: characteristic, peripheral: peripheral)
+            if characteristic.uuid == Press.characteristicUUID {
+                peripheral.setNotifyValue(true, for: characteristic)
+            }
+//            settingsClass.readPress(characteristic: characteristic, peripheral: peripheral)
+            if characteristic.uuid == Temp2.characteristicUUID {
+                peripheral.setNotifyValue(true, for: characteristic)
+            }
+//            settingsClass.readTemp2(characteristic: characteristic, peripheral: peripheral)
+            if characteristic.uuid == Hum2.characteristicUUID {
+                peripheral.setNotifyValue(true, for: characteristic)
+            }
+//            settingsClass.readHum2(characteristic: characteristic, peripheral: peripheral)
+            if characteristic.uuid == Press2.characteristicUUID {
+                peripheral.setNotifyValue(true, for: characteristic)
+            }
+//            settingsClass.readPress2(characteristic: characteristic, peripheral: peripheral)
+            if characteristic.uuid == Speed.characteristicUUID {
+                peripheral.setNotifyValue(true, for: characteristic)
+            }
+//            settingsClass.readSpeed(characteristic: characteristic, peripheral: peripheral)
+            if characteristic.uuid == Speed2.characteristicUUID {
+                peripheral.setNotifyValue(true, for: characteristic)
+            }
+//            settingsClass.readSpeed2(characteristic: characteristic, peripheral: peripheral)
+            if characteristic.uuid == Tns.characteristicUUID {
+                peripheral.setNotifyValue(true, for: characteristic)
+            }
+//            settingsClass.readTns(characteristic: characteristic, peripheral: peripheral)
+            if characteristic.uuid == CURRENT_NODE_READ.characteristicUUID {
+                peripheral.setNotifyValue(true, for: characteristic)
+            }
+            
+            if characteristic.uuid == NODES_DATE.characteristicUUID {
+                peripheral.setNotifyValue(true, for: characteristic)
+                NotificationCenter.default.post(name: NSNotification.Name(rawValue: "readButtonNotHidden"), object: nil)
+            }
         }
     }
     
@@ -104,7 +143,11 @@ extension BluetoothManager: CBPeripheralDelegate  {
         settingsClass.addTemp2(characteristic: characteristic, peripheral: peripheral, bluetoothManager: self, valueCharacterictic: valueCharacterictic)
         settingsClass.addHum2(characteristic: characteristic, peripheral: peripheral, bluetoothManager: self, valueCharacterictic: valueCharacterictic)
         settingsClass.addPress2(characteristic: characteristic, peripheral: peripheral, bluetoothManager: self, valueCharacterictic: valueCharacterictic)
-        settingsClass.addTest(characteristic: characteristic, peripheral: peripheral, bluetoothManager: self, valueCharacterictic: valueCharacterictic)
+        settingsClass.addSpeed(characteristic: characteristic, peripheral: peripheral, bluetoothManager: self, valueCharacterictic: valueCharacterictic)
+        settingsClass.addSpeed2(characteristic: characteristic, peripheral: peripheral, bluetoothManager: self, valueCharacterictic: valueCharacterictic)
+        settingsClass.addTns(characteristic: characteristic, peripheral: peripheral, bluetoothManager: self, valueCharacterictic: valueCharacterictic)
+        settingsClass.addCURRENT_NODE_READ(characteristic: characteristic, peripheral: peripheral, bluetoothManager: self, valueCharacterictic: valueCharacterictic)
+        settingsClass.addNODES_DATE(characteristic: characteristic, peripheral: peripheral, bluetoothManager: self, valueCharacterictic: valueCharacterictic)
     }
     
     

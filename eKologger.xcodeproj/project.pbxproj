@@ -7,7 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		185B96CB1AEE4D719BD54422 /* Pods_eKologger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5EECABBA02B8018DCBB3AC9C /* Pods_eKologger.framework */; };
 		6C090BCB28C5DA1600913486 /* ReadLiveData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C090BCA28C5DA1600913486 /* ReadLiveData.swift */; };
+		6C4D0DD1290AB09400CE0961 /* ViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C4D0DD0290AB09400CE0961 /* ViewController2.swift */; };
+		6C4D0DD3290AB3A600CE0961 /* ReadDataFromDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C4D0DD2290AB3A600CE0961 /* ReadDataFromDB.swift */; };
+		6C4D0DD5290AB5FF00CE0961 /* DataDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C4D0DD4290AB5FF00CE0961 /* DataDevice.swift */; };
+		6C4D0DD7290ABB0900CE0961 /* NotMeasureAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C4D0DD6290ABB0900CE0961 /* NotMeasureAlert.swift */; };
+		6C4D0DDB290AD0BE00CE0961 /* DeleteDataFromDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C4D0DDA290AD0BE00CE0961 /* DeleteDataFromDB.swift */; };
+		6C6170322909160700556C05 /* DaysMeasurementTableViewLoad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C6170312909160700556C05 /* DaysMeasurementTableViewLoad.swift */; };
+		6C61703429091D4B00556C05 /* DateCount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C61703329091D4B00556C05 /* DateCount.swift */; };
+		6C61703629094BC200556C05 /* DataDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C61703529094BC200556C05 /* DataDB.swift */; };
+		6C61704029096B1C00556C05 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C61703F29096B1C00556C05 /* TableViewController.swift */; };
+		6C6170422909722000556C05 /* TabCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C6170412909722000556C05 /* TabCell.swift */; };
+		6C61704429097E7100556C05 /* DataProcessing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C61704329097E7100556C05 /* DataProcessing.swift */; };
+		6CFD280B290A760800FF4759 /* db.sqlite3 in Resources */ = {isa = PBXBuildFile; fileRef = 6CFD280A290A760800FF4759 /* db.sqlite3 */; };
+		6CFD280D290A767800FF4759 /* SQLiteDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CFD280C290A767800FF4759 /* SQLiteDB.swift */; };
+		6CFD280F290A803600FF4759 /* InsertDataToDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CFD280E290A803600FF4759 /* InsertDataToDB.swift */; };
 		F2DC17BC28C4D977008720E4 /* BluetoothManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2DC17BB28C4D977008720E4 /* BluetoothManager.swift */; };
 		F2DC17BE28C4DA3F008720E4 /* BluetoothConnect.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2DC17BD28C4DA3F008720E4 /* BluetoothConnect.swift */; };
 		F2DC17C028C4DEFA008720E4 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2DC17BF28C4DEFA008720E4 /* ViewModel.swift */; };
@@ -26,7 +41,24 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5EECABBA02B8018DCBB3AC9C /* Pods_eKologger.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_eKologger.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C090BCA28C5DA1600913486 /* ReadLiveData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadLiveData.swift; sourceTree = "<group>"; };
+		6C4D0DD0290AB09400CE0961 /* ViewController2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController2.swift; sourceTree = "<group>"; };
+		6C4D0DD2290AB3A600CE0961 /* ReadDataFromDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadDataFromDB.swift; sourceTree = "<group>"; };
+		6C4D0DD4290AB5FF00CE0961 /* DataDevice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataDevice.swift; sourceTree = "<group>"; };
+		6C4D0DD6290ABB0900CE0961 /* NotMeasureAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotMeasureAlert.swift; sourceTree = "<group>"; };
+		6C4D0DDA290AD0BE00CE0961 /* DeleteDataFromDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteDataFromDB.swift; sourceTree = "<group>"; };
+		6C6170312909160700556C05 /* DaysMeasurementTableViewLoad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DaysMeasurementTableViewLoad.swift; sourceTree = "<group>"; };
+		6C61703329091D4B00556C05 /* DateCount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateCount.swift; sourceTree = "<group>"; };
+		6C61703529094BC200556C05 /* DataDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataDB.swift; sourceTree = "<group>"; };
+		6C61703F29096B1C00556C05 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
+		6C6170412909722000556C05 /* TabCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabCell.swift; sourceTree = "<group>"; };
+		6C61704329097E7100556C05 /* DataProcessing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataProcessing.swift; sourceTree = "<group>"; };
+		6CFD280A290A760800FF4759 /* db.sqlite3 */ = {isa = PBXFileReference; lastKnownFileType = file; path = db.sqlite3; sourceTree = "<group>"; };
+		6CFD280C290A767800FF4759 /* SQLiteDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SQLiteDB.swift; sourceTree = "<group>"; };
+		6CFD280E290A803600FF4759 /* InsertDataToDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsertDataToDB.swift; sourceTree = "<group>"; };
+		C2CFD11B24290E54ABD58DF3 /* Pods-eKologger.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-eKologger.release.xcconfig"; path = "Target Support Files/Pods-eKologger/Pods-eKologger.release.xcconfig"; sourceTree = "<group>"; };
+		E0E22FA0EDB7987F8971A249 /* Pods-eKologger.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-eKologger.debug.xcconfig"; path = "Target Support Files/Pods-eKologger/Pods-eKologger.debug.xcconfig"; sourceTree = "<group>"; };
 		F2DC17BB28C4D977008720E4 /* BluetoothManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluetoothManager.swift; sourceTree = "<group>"; };
 		F2DC17BD28C4DA3F008720E4 /* BluetoothConnect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluetoothConnect.swift; sourceTree = "<group>"; };
 		F2DC17BF28C4DEFA008720E4 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
@@ -51,17 +83,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				185B96CB1AEE4D719BD54422 /* Pods_eKologger.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5E606E2E525207AC58F60B89 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E0E22FA0EDB7987F8971A249 /* Pods-eKologger.debug.xcconfig */,
+				C2CFD11B24290E54ABD58DF3 /* Pods-eKologger.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		BCF29013686A7773138E8743 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5EECABBA02B8018DCBB3AC9C /* Pods_eKologger.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		F2E7FF9928C3788C00F6468B = {
 			isa = PBXGroup;
 			children = (
 				F2E7FFA428C3788C00F6468B /* eKologger */,
 				F2E7FFA328C3788C00F6468B /* Products */,
+				5E606E2E525207AC58F60B89 /* Pods */,
+				BCF29013686A7773138E8743 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -78,6 +130,7 @@
 			children = (
 				F2E7FFA528C3788C00F6468B /* AppDelegate.swift */,
 				F2E7FFA928C3788C00F6468B /* ViewController.swift */,
+				6C4D0DD0290AB09400CE0961 /* ViewController2.swift */,
 				F2DC17BB28C4D977008720E4 /* BluetoothManager.swift */,
 				F2DC17BD28C4DA3F008720E4 /* BluetoothConnect.swift */,
 				F2DC17C128C4E0BB008720E4 /* CBUUIDEnums.swift */,
@@ -89,6 +142,19 @@
 				F2DC17CD28C4EC8B008720E4 /* WriteConverters.swift */,
 				6C090BCA28C5DA1600913486 /* ReadLiveData.swift */,
 				F2DC17BF28C4DEFA008720E4 /* ViewModel.swift */,
+				6C4D0DD4290AB5FF00CE0961 /* DataDevice.swift */,
+				6C61703329091D4B00556C05 /* DateCount.swift */,
+				6C61703529094BC200556C05 /* DataDB.swift */,
+				6C6170312909160700556C05 /* DaysMeasurementTableViewLoad.swift */,
+				6C61704329097E7100556C05 /* DataProcessing.swift */,
+				6C4D0DD6290ABB0900CE0961 /* NotMeasureAlert.swift */,
+				6C61703F29096B1C00556C05 /* TableViewController.swift */,
+				6C6170412909722000556C05 /* TabCell.swift */,
+				6CFD280A290A760800FF4759 /* db.sqlite3 */,
+				6CFD280C290A767800FF4759 /* SQLiteDB.swift */,
+				6CFD280E290A803600FF4759 /* InsertDataToDB.swift */,
+				6C4D0DD2290AB3A600CE0961 /* ReadDataFromDB.swift */,
+				6C4D0DDA290AD0BE00CE0961 /* DeleteDataFromDB.swift */,
 				F2E7FFAB28C3788C00F6468B /* Main.storyboard */,
 				F2E7FFAE28C3789200F6468B /* Assets.xcassets */,
 				F2E7FFB028C3789200F6468B /* LaunchScreen.storyboard */,
@@ -104,9 +170,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F2E7FFB628C3789200F6468B /* Build configuration list for PBXNativeTarget "eKologger" */;
 			buildPhases = (
+				71195A83C358C1AC1C54AB5C /* [CP] Check Pods Manifest.lock */,
 				F2E7FF9E28C3788C00F6468B /* Sources */,
 				F2E7FF9F28C3788C00F6468B /* Frameworks */,
 				F2E7FFA028C3788C00F6468B /* Resources */,
+				F36969B1665372E375D4667D /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -158,10 +226,53 @@
 				F2E7FFB228C3789200F6468B /* LaunchScreen.storyboard in Resources */,
 				F2E7FFAF28C3789200F6468B /* Assets.xcassets in Resources */,
 				F2E7FFAD28C3788C00F6468B /* Main.storyboard in Resources */,
+				6CFD280B290A760800FF4759 /* db.sqlite3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		71195A83C358C1AC1C54AB5C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-eKologger-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F36969B1665372E375D4667D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-eKologger/Pods-eKologger-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-eKologger/Pods-eKologger-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-eKologger/Pods-eKologger-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		F2E7FF9E28C3788C00F6468B /* Sources */ = {
@@ -170,17 +281,30 @@
 			files = (
 				F2DC17C028C4DEFA008720E4 /* ViewModel.swift in Sources */,
 				F2DC17C428C4E0F8008720E4 /* CharacteristicProtocol.swift in Sources */,
+				6C61703429091D4B00556C05 /* DateCount.swift in Sources */,
 				F2E7FFAA28C3788C00F6468B /* ViewController.swift in Sources */,
 				F2DC17C228C4E0BB008720E4 /* CBUUIDEnums.swift in Sources */,
 				F2DC17CA28C4E645008720E4 /* ReadConverters.swift in Sources */,
+				6C61704029096B1C00556C05 /* TableViewController.swift in Sources */,
 				6C090BCB28C5DA1600913486 /* ReadLiveData.swift in Sources */,
 				F2DC17BE28C4DA3F008720E4 /* BluetoothConnect.swift in Sources */,
 				F2DC17C628C4E238008720E4 /* SettingsClass.swift in Sources */,
+				6C61704429097E7100556C05 /* DataProcessing.swift in Sources */,
 				F2DC17CC28C4EC43008720E4 /* WriteData.swift in Sources */,
+				6C6170422909722000556C05 /* TabCell.swift in Sources */,
+				6C4D0DD5290AB5FF00CE0961 /* DataDevice.swift in Sources */,
 				F2DC17C828C4E5B4008720E4 /* ReadData.swift in Sources */,
 				F2DC17BC28C4D977008720E4 /* BluetoothManager.swift in Sources */,
+				6C4D0DD7290ABB0900CE0961 /* NotMeasureAlert.swift in Sources */,
+				6C4D0DD1290AB09400CE0961 /* ViewController2.swift in Sources */,
+				6CFD280F290A803600FF4759 /* InsertDataToDB.swift in Sources */,
+				6C4D0DD3290AB3A600CE0961 /* ReadDataFromDB.swift in Sources */,
+				6C6170322909160700556C05 /* DaysMeasurementTableViewLoad.swift in Sources */,
 				F2DC17CE28C4EC8B008720E4 /* WriteConverters.swift in Sources */,
+				6CFD280D290A767800FF4759 /* SQLiteDB.swift in Sources */,
 				F2E7FFA628C3788C00F6468B /* AppDelegate.swift in Sources */,
+				6C4D0DDB290AD0BE00CE0961 /* DeleteDataFromDB.swift in Sources */,
+				6C61703629094BC200556C05 /* DataDB.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -322,6 +446,7 @@
 		};
 		F2E7FFB728C3789200F6468B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E0E22FA0EDB7987F8971A249 /* Pods-eKologger.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -337,7 +462,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -356,6 +481,7 @@
 		};
 		F2E7FFB828C3789200F6468B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C2CFD11B24290E54ABD58DF3 /* Pods-eKologger.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -371,7 +497,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

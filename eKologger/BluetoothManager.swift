@@ -11,6 +11,10 @@ import UIKit
 
 class BluetoothManager: NSObject {
     static let instance = BluetoothManager()
+    var sqliteDB = SQLiteDB.sharedInstance
+    var insertDataToDB = InsertDataToDB()
+    var readDataFromDB = ReadDataFromDB()
+    var deleteDataFromDB = DeleteDataFromDB()
     
     var centralManager: CBCentralManager!
     
@@ -20,10 +24,15 @@ class BluetoothManager: NSObject {
         centralManager = CBCentralManager(delegate: self, queue: bluetoothManagerQueue)
     }
     
+    func connectPeripheral() {
+        centralManager.scanForPeripherals(withServices: nil)
+    }
+    
     func restartBluetoothManager() {
         centralManager.scanForPeripherals(withServices: nil)
         print("restartBluetoothManager")
     }
+    
     var readData = ReadData()
     var writeData = WriteData()
     var settingsClass = SettingsClass()
@@ -39,6 +48,9 @@ class BluetoothManager: NSObject {
     var temp2: Float = 0
     var hum2: Float = 0
     var press2: Float = 0
+    var speed: Float = 0
+    var speed2: Float = 0
+    var tns: Float = 0
     var test: [UInt8] = []
 }
 

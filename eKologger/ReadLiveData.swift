@@ -18,24 +18,24 @@ class ReadLiveData {
                 if characteristic.uuid == DateTime.characteristicUUID {
                     peripheral.readValue(for: characteristic)
                 }
-                if characteristic.uuid == Temp.characteristicUUID {
-                    peripheral.readValue(for: characteristic)
-                }
-                if characteristic.uuid == Hum.characteristicUUID {
-                    peripheral.readValue(for: characteristic)
-                }
-                if characteristic.uuid == Press.characteristicUUID {
-                    peripheral.readValue(for: characteristic)
-                }
-                if characteristic.uuid == Temp2.characteristicUUID {
-                    peripheral.readValue(for: characteristic)
-                }
-                if characteristic.uuid == Hum2.characteristicUUID {
-                    peripheral.readValue(for: characteristic)
-                }
-                if characteristic.uuid == Press2.characteristicUUID {
-                    peripheral.readValue(for: characteristic)
-                }
+//                if characteristic.uuid == Temp.characteristicUUID {
+//                    peripheral.readValue(for: characteristic)
+//                }
+//                if characteristic.uuid == Hum.characteristicUUID {
+//                    peripheral.readValue(for: characteristic)
+//                }
+//                if characteristic.uuid == Press.characteristicUUID {
+//                    peripheral.readValue(for: characteristic)
+//                }
+//                if characteristic.uuid == Temp2.characteristicUUID {
+//                    peripheral.readValue(for: characteristic)
+//                }
+//                if characteristic.uuid == Hum2.characteristicUUID {
+//                    peripheral.readValue(for: characteristic)
+//                }
+//                if characteristic.uuid == Press2.characteristicUUID {
+//                    peripheral.readValue(for: characteristic)
+//                }
             }
         }
     }
