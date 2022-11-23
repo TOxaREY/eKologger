@@ -9,7 +9,9 @@
 /* Begin PBXBuildFile section */
 		185B96CB1AEE4D719BD54422 /* Pods_eKologger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5EECABBA02B8018DCBB3AC9C /* Pods_eKologger.framework */; };
 		6C090BCB28C5DA1600913486 /* ReadLiveData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C090BCA28C5DA1600913486 /* ReadLiveData.swift */; };
-		6C4D0DD1290AB09400CE0961 /* ViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C4D0DD0290AB09400CE0961 /* ViewController2.swift */; };
+		6C1CBF8A290BDC4200B1999D /* ResetAllSmartAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C1CBF89290BDC4200B1999D /* ResetAllSmartAlert.swift */; };
+		6C1CBF8C290BEFB900B1999D /* NotSettingsAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C1CBF8B290BEFB900B1999D /* NotSettingsAlert.swift */; };
+		6C4D0DD1290AB09400CE0961 /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C4D0DD0290AB09400CE0961 /* CalendarViewController.swift */; };
 		6C4D0DD3290AB3A600CE0961 /* ReadDataFromDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C4D0DD2290AB3A600CE0961 /* ReadDataFromDB.swift */; };
 		6C4D0DD5290AB5FF00CE0961 /* DataDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C4D0DD4290AB5FF00CE0961 /* DataDevice.swift */; };
 		6C4D0DD7290ABB0900CE0961 /* NotMeasureAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C4D0DD6290ABB0900CE0961 /* NotMeasureAlert.swift */; };
@@ -17,9 +19,13 @@
 		6C6170322909160700556C05 /* DaysMeasurementTableViewLoad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C6170312909160700556C05 /* DaysMeasurementTableViewLoad.swift */; };
 		6C61703429091D4B00556C05 /* DateCount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C61703329091D4B00556C05 /* DateCount.swift */; };
 		6C61703629094BC200556C05 /* DataDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C61703529094BC200556C05 /* DataDB.swift */; };
-		6C61704029096B1C00556C05 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C61703F29096B1C00556C05 /* TableViewController.swift */; };
+		6C61704029096B1C00556C05 /* LogTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C61703F29096B1C00556C05 /* LogTableViewController.swift */; };
 		6C6170422909722000556C05 /* TabCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C6170412909722000556C05 /* TabCell.swift */; };
 		6C61704429097E7100556C05 /* DataProcessing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C61704329097E7100556C05 /* DataProcessing.swift */; };
+		6CB2451E290BC1FE00E8FB3E /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CB2451D290BC1FE00E8FB3E /* SettingsViewController.swift */; };
+		6CB24520290BC4D500E8FB3E /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CB2451F290BC4D500E8FB3E /* NavigationController.swift */; };
+		6CB24522290BD54500E8FB3E /* SaveSettingsAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CB24521290BD54500E8FB3E /* SaveSettingsAlert.swift */; };
+		6CB24524290BD60F00E8FB3E /* ResetAllAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CB24523290BD60F00E8FB3E /* ResetAllAlert.swift */; };
 		6CFD280B290A760800FF4759 /* db.sqlite3 in Resources */ = {isa = PBXBuildFile; fileRef = 6CFD280A290A760800FF4759 /* db.sqlite3 */; };
 		6CFD280D290A767800FF4759 /* SQLiteDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CFD280C290A767800FF4759 /* SQLiteDB.swift */; };
 		6CFD280F290A803600FF4759 /* InsertDataToDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CFD280E290A803600FF4759 /* InsertDataToDB.swift */; };
@@ -34,7 +40,7 @@
 		F2DC17CC28C4EC43008720E4 /* WriteData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2DC17CB28C4EC43008720E4 /* WriteData.swift */; };
 		F2DC17CE28C4EC8B008720E4 /* WriteConverters.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2DC17CD28C4EC8B008720E4 /* WriteConverters.swift */; };
 		F2E7FFA628C3788C00F6468B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E7FFA528C3788C00F6468B /* AppDelegate.swift */; };
-		F2E7FFAA28C3788C00F6468B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E7FFA928C3788C00F6468B /* ViewController.swift */; };
+		F2E7FFAA28C3788C00F6468B /* LiveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E7FFA928C3788C00F6468B /* LiveViewController.swift */; };
 		F2E7FFAD28C3788C00F6468B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F2E7FFAB28C3788C00F6468B /* Main.storyboard */; };
 		F2E7FFAF28C3789200F6468B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F2E7FFAE28C3789200F6468B /* Assets.xcassets */; };
 		F2E7FFB228C3789200F6468B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F2E7FFB028C3789200F6468B /* LaunchScreen.storyboard */; };
@@ -43,7 +49,9 @@
 /* Begin PBXFileReference section */
 		5EECABBA02B8018DCBB3AC9C /* Pods_eKologger.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_eKologger.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C090BCA28C5DA1600913486 /* ReadLiveData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadLiveData.swift; sourceTree = "<group>"; };
-		6C4D0DD0290AB09400CE0961 /* ViewController2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController2.swift; sourceTree = "<group>"; };
+		6C1CBF89290BDC4200B1999D /* ResetAllSmartAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetAllSmartAlert.swift; sourceTree = "<group>"; };
+		6C1CBF8B290BEFB900B1999D /* NotSettingsAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotSettingsAlert.swift; sourceTree = "<group>"; };
+		6C4D0DD0290AB09400CE0961 /* CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
 		6C4D0DD2290AB3A600CE0961 /* ReadDataFromDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadDataFromDB.swift; sourceTree = "<group>"; };
 		6C4D0DD4290AB5FF00CE0961 /* DataDevice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataDevice.swift; sourceTree = "<group>"; };
 		6C4D0DD6290ABB0900CE0961 /* NotMeasureAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotMeasureAlert.swift; sourceTree = "<group>"; };
@@ -51,9 +59,13 @@
 		6C6170312909160700556C05 /* DaysMeasurementTableViewLoad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DaysMeasurementTableViewLoad.swift; sourceTree = "<group>"; };
 		6C61703329091D4B00556C05 /* DateCount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateCount.swift; sourceTree = "<group>"; };
 		6C61703529094BC200556C05 /* DataDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataDB.swift; sourceTree = "<group>"; };
-		6C61703F29096B1C00556C05 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
+		6C61703F29096B1C00556C05 /* LogTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogTableViewController.swift; sourceTree = "<group>"; };
 		6C6170412909722000556C05 /* TabCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabCell.swift; sourceTree = "<group>"; };
 		6C61704329097E7100556C05 /* DataProcessing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataProcessing.swift; sourceTree = "<group>"; };
+		6CB2451D290BC1FE00E8FB3E /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		6CB2451F290BC4D500E8FB3E /* NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
+		6CB24521290BD54500E8FB3E /* SaveSettingsAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveSettingsAlert.swift; sourceTree = "<group>"; };
+		6CB24523290BD60F00E8FB3E /* ResetAllAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetAllAlert.swift; sourceTree = "<group>"; };
 		6CFD280A290A760800FF4759 /* db.sqlite3 */ = {isa = PBXFileReference; lastKnownFileType = file; path = db.sqlite3; sourceTree = "<group>"; };
 		6CFD280C290A767800FF4759 /* SQLiteDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SQLiteDB.swift; sourceTree = "<group>"; };
 		6CFD280E290A803600FF4759 /* InsertDataToDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsertDataToDB.swift; sourceTree = "<group>"; };
@@ -71,7 +83,7 @@
 		F2DC17CD28C4EC8B008720E4 /* WriteConverters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteConverters.swift; sourceTree = "<group>"; };
 		F2E7FFA228C3788C00F6468B /* eKologger.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = eKologger.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F2E7FFA528C3788C00F6468B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		F2E7FFA928C3788C00F6468B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		F2E7FFA928C3788C00F6468B /* LiveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveViewController.swift; sourceTree = "<group>"; };
 		F2E7FFAC28C3788C00F6468B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F2E7FFAE28C3789200F6468B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F2E7FFB128C3789200F6468B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -129,8 +141,12 @@
 			isa = PBXGroup;
 			children = (
 				F2E7FFA528C3788C00F6468B /* AppDelegate.swift */,
-				F2E7FFA928C3788C00F6468B /* ViewController.swift */,
-				6C4D0DD0290AB09400CE0961 /* ViewController2.swift */,
+				F2DC17BF28C4DEFA008720E4 /* ViewModel.swift */,
+				6CB2451F290BC4D500E8FB3E /* NavigationController.swift */,
+				F2E7FFA928C3788C00F6468B /* LiveViewController.swift */,
+				6CB2451D290BC1FE00E8FB3E /* SettingsViewController.swift */,
+				6C4D0DD0290AB09400CE0961 /* CalendarViewController.swift */,
+				6C61703F29096B1C00556C05 /* LogTableViewController.swift */,
 				F2DC17BB28C4D977008720E4 /* BluetoothManager.swift */,
 				F2DC17BD28C4DA3F008720E4 /* BluetoothConnect.swift */,
 				F2DC17C128C4E0BB008720E4 /* CBUUIDEnums.swift */,
@@ -141,14 +157,16 @@
 				F2DC17C928C4E645008720E4 /* ReadConverters.swift */,
 				F2DC17CD28C4EC8B008720E4 /* WriteConverters.swift */,
 				6C090BCA28C5DA1600913486 /* ReadLiveData.swift */,
-				F2DC17BF28C4DEFA008720E4 /* ViewModel.swift */,
 				6C4D0DD4290AB5FF00CE0961 /* DataDevice.swift */,
 				6C61703329091D4B00556C05 /* DateCount.swift */,
 				6C61703529094BC200556C05 /* DataDB.swift */,
 				6C6170312909160700556C05 /* DaysMeasurementTableViewLoad.swift */,
 				6C61704329097E7100556C05 /* DataProcessing.swift */,
 				6C4D0DD6290ABB0900CE0961 /* NotMeasureAlert.swift */,
-				6C61703F29096B1C00556C05 /* TableViewController.swift */,
+				6C1CBF8B290BEFB900B1999D /* NotSettingsAlert.swift */,
+				6CB24521290BD54500E8FB3E /* SaveSettingsAlert.swift */,
+				6CB24523290BD60F00E8FB3E /* ResetAllAlert.swift */,
+				6C1CBF89290BDC4200B1999D /* ResetAllSmartAlert.swift */,
 				6C6170412909722000556C05 /* TabCell.swift */,
 				6CFD280A290A760800FF4759 /* db.sqlite3 */,
 				6CFD280C290A767800FF4759 /* SQLiteDB.swift */,
@@ -279,13 +297,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6CB24524290BD60F00E8FB3E /* ResetAllAlert.swift in Sources */,
 				F2DC17C028C4DEFA008720E4 /* ViewModel.swift in Sources */,
 				F2DC17C428C4E0F8008720E4 /* CharacteristicProtocol.swift in Sources */,
 				6C61703429091D4B00556C05 /* DateCount.swift in Sources */,
-				F2E7FFAA28C3788C00F6468B /* ViewController.swift in Sources */,
+				6C1CBF8A290BDC4200B1999D /* ResetAllSmartAlert.swift in Sources */,
+				F2E7FFAA28C3788C00F6468B /* LiveViewController.swift in Sources */,
 				F2DC17C228C4E0BB008720E4 /* CBUUIDEnums.swift in Sources */,
+				6CB24522290BD54500E8FB3E /* SaveSettingsAlert.swift in Sources */,
+				6CB24520290BC4D500E8FB3E /* NavigationController.swift in Sources */,
 				F2DC17CA28C4E645008720E4 /* ReadConverters.swift in Sources */,
-				6C61704029096B1C00556C05 /* TableViewController.swift in Sources */,
+				6C61704029096B1C00556C05 /* LogTableViewController.swift in Sources */,
+				6C1CBF8C290BEFB900B1999D /* NotSettingsAlert.swift in Sources */,
 				6C090BCB28C5DA1600913486 /* ReadLiveData.swift in Sources */,
 				F2DC17BE28C4DA3F008720E4 /* BluetoothConnect.swift in Sources */,
 				F2DC17C628C4E238008720E4 /* SettingsClass.swift in Sources */,
@@ -296,7 +319,7 @@
 				F2DC17C828C4E5B4008720E4 /* ReadData.swift in Sources */,
 				F2DC17BC28C4D977008720E4 /* BluetoothManager.swift in Sources */,
 				6C4D0DD7290ABB0900CE0961 /* NotMeasureAlert.swift in Sources */,
-				6C4D0DD1290AB09400CE0961 /* ViewController2.swift in Sources */,
+				6C4D0DD1290AB09400CE0961 /* CalendarViewController.swift in Sources */,
 				6CFD280F290A803600FF4759 /* InsertDataToDB.swift in Sources */,
 				6C4D0DD3290AB3A600CE0961 /* ReadDataFromDB.swift in Sources */,
 				6C6170322909160700556C05 /* DaysMeasurementTableViewLoad.swift in Sources */,
@@ -305,6 +328,7 @@
 				F2E7FFA628C3788C00F6468B /* AppDelegate.swift in Sources */,
 				6C4D0DDB290AD0BE00CE0961 /* DeleteDataFromDB.swift in Sources */,
 				6C61703629094BC200556C05 /* DataDB.swift in Sources */,
+				6CB2451E290BC1FE00E8FB3E /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

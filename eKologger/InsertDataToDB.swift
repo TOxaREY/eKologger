@@ -29,6 +29,7 @@ class InsertDataToDB {
                     return
                 }
             }
+
             let insert = db.measureTable.insert(db.id <- UUID().uuidString,
                                                 db.dateTime <- Int(data.dateTime),
                                                 db.flagError <- Int(data.flagError),

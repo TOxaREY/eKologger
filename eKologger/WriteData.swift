@@ -21,6 +21,8 @@ class WriteData {
                 return UInt8((value as! UInt8)).data
             case "int64":
                 return Int64((value as! Int64)).data
+            case "float":
+                return Float((value as! Float)).data
             default:
                 return UInt8((value as! UInt8)).data
             }

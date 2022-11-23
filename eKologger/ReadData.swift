@@ -19,6 +19,12 @@ class ReadData {
             return data.float
         case "array":
             return data.array
+        case "uint32":
+            return data.uint32
+        case "uint8":
+            return data.uint8
+        case "string":
+            return data.string
         default:
             break
         }

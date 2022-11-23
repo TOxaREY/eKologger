@@ -13,6 +13,14 @@ extension UInt32 {
         var uint32 = self
         return Data(bytes: &uint32, count: MemoryLayout<UInt32>.size)
     }
+    
+    var arrayUInt8: [UInt8] {
+        return Array(withUnsafePointer(to: self.littleEndian) {
+            $0.withMemoryRebound(to: UInt8.self, capacity: MemoryLayout<UInt32>.size) {
+                UnsafeBufferPointer(start: $0, count: MemoryLayout<UInt32>.size)
+            }
+        })
+   }
 }
 
 extension Int64 {
@@ -20,6 +28,14 @@ extension Int64 {
     var data: Data {
         var int64 = self
         return Data(bytes: &int64, count: MemoryLayout<Int64>.size)
+    }
+}
+
+extension Float {
+    
+    var data: Data {
+        var float = self
+        return Data(bytes: &float, count: MemoryLayout<Float>.size)
     }
 }
 

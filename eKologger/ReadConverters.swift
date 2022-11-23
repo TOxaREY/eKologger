@@ -18,11 +18,31 @@ extension Data {
         }
     }
     
-    var float: Float {
-            get {
-                return Float(bitPattern: UInt32(littleEndian: self.withUnsafeBytes {$0.load(as: UInt32.self)}))
-            }
+    var uint32: UInt32 {
+        get {
+            let uint32 = self.withUnsafeBytes {$0.load(as: UInt32.self)}
+            return uint32
         }
+    }
+    
+    var uint8: UInt8 {
+        get {
+            let uint8 = self.withUnsafeBytes {$0.load(as: UInt8.self)}
+            return uint8
+        }
+    }
+    
+    var float: Float {
+        get {
+            return Float(bitPattern: UInt32(littleEndian: self.withUnsafeBytes {$0.load(as: UInt32.self)}))
+        }
+    }
+    
+    var string: String {
+        get {
+            return String(data: self, encoding: String.Encoding.utf8) ?? ""
+        }
+    }
     
     var array: [UInt8] { return Array(self) }
 }
@@ -107,6 +127,14 @@ extension Array {
             assert(self.count * MemoryLayout<UInt8>.stride >= MemoryLayout<Float>.size)
             let float = self.withUnsafeBytes({$0.load(as: Float.self)})
             return float
+        }
+    }
+    
+    var convertArrayToUInt32: UInt32 {
+        get {
+            assert(self.count * MemoryLayout<UInt8>.stride >= MemoryLayout<UInt32>.size)
+            let uint32 = self.withUnsafeBytes({$0.load(as: UInt32.self)})
+            return uint32
         }
     }
 }

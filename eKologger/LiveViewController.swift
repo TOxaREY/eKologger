@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  LiveViewController.swift
 //  eKolloger
 //
 //  Created by REYNIKOV ANTON on 03.09.2022.
@@ -7,18 +7,25 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class LiveViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     var viewModel = ViewModel()
     private var measurementsTableView = UITableView()
     private var alertController = UIAlertController()
     var currentCount = ""
     
-//    @IBOutlet weak var countLabel: UILabel!
-//    @IBOutlet weak var twiceLabel: UILabel!
-//    @IBOutlet weak var dropLabel: UILabel!
+    @IBAction func connectButton(_ sender: Any) {
+        if connected {
+            offConnection = true
+            viewModel.bluetoothManager.disconnectPeripheral()
+        } else {
+            viewModel.bluetoothManager.connectPeripheral()
+        }
+    }
+    @IBOutlet weak var titleLabel: UINavigationItem!
     @IBOutlet weak var deviceTimeLabel: UILabel!
     @IBOutlet weak var bleImageView: UIImageView!
+    @IBOutlet weak var batteryImageView: UIImageView!
     @IBOutlet weak var tempLabel: UILabel!
     @IBOutlet weak var humLabel: UILabel!
     @IBOutlet weak var pressLabel: UILabel!
@@ -38,39 +45,20 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         ind.startAnimating()
         viewModel.bluetoothManager.settingsClass.writeNODES_DATE(bluetoothManager: viewModel.bluetoothManager)
     }
-    @IBOutlet weak var tableButton: UIButton!
-    //    @IBAction func readButton(_ sender: Any) {
-//        viewModel.bluetoothManager.settingsClass.writeCURRENT_NODE_READ(bluetoothManager: viewModel.bluetoothManager)
-//        DispatchQueue.main.async {
-//            self.countLabel.text = "--"
-//            self.twiceLabel.text = "--"
-//            self.dropLabel.text = "--"
-//        }
-//    }
-    
-//    @objc func setCount(notification: Notification) {
-//        DispatchQueue.main.async {
-//            if let value = notification.userInfo?["value"] as? UInt16 {
-//                if self.currentCount == "" {
-//                    self.currentCount = String(value)
-//                } else {
-//                    if (Int(self.currentCount)! + 1) != Int(value) {
-//                        self.dropLabel.text = String((Int(self.currentCount)! + 1))
-//                    }
-//                    if self.currentCount == String(value) {
-//                        self.twiceLabel.text = self.currentCount
-//                    } else {
-//                        self.currentCount = String(value)
-//                    }
-//                }
-//                self.countLabel.text = String(value)
-//            }
-//        }
-//    }
+    @IBAction func settingButton(_ sender: Any) {
+        if viewModel.bluetoothManager.enable_logging != nil && viewModel.bluetoothManager.logging_interval != nil && viewModel.bluetoothManager.display_sleep != nil && viewModel.bluetoothManager.heater_enabled1 != nil && viewModel.bluetoothManager.heater_enabled2 != nil {
+            DispatchQueue.main.async {
+                self.performSegue(withIdentifier: "segueSettingsVC", sender: nil)
+            }
+        } else {
+            viewModel.notSettingsAlert.notSettingsAlert(vc: self)
+        }
+    }
     
     @objc func connect() {
         DispatchQueue.main.async {
             self.bleImageView.image = UIImage(named: "ble_blue.png")
+            self.batteryImageView.isHidden = false
         }
     }
     
@@ -78,6 +66,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         DispatchQueue.main.async {
             self.deviceTimeLabel.text = "--"
             self.bleImageView.image = UIImage(named: "ble_gray.png")
+            self.batteryImageView.isHidden = true
         }
     }
     
@@ -125,13 +114,13 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     @objc func getSpeed() {
         DispatchQueue.main.async {
-            self.speedLabel.text = String(format:"%.1f", self.viewModel.bluetoothManager.speed)
+            self.speedLabel.text = String(format:"%.1f", self.viewModel.bluetoothManager.speed!)
         }
     }
     
     @objc func getSpeed2() {
         DispatchQueue.main.async {
-            self.speed2Label.text = String(format:"%.1f", self.viewModel.bluetoothManager.speed2)
+            self.speed2Label.text = String(format:"%.1f", self.viewModel.bluetoothManager.speed2!)
         }
     }
     
@@ -175,11 +164,29 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         }
     }
     
+    @objc func batt() {
+        DispatchQueue.main.async {
+            if self.viewModel.bluetoothManager.powerState >> 0 & 1 == 1 {
+                self.batteryImageView.image = UIImage(named: "charging")
+            } else if self.viewModel.bluetoothManager.powerState >> 1 & 1 == 1 {
+                self.batteryImageView.image = UIImage(named: "empty")
+            } else if self.viewModel.bluetoothManager.powerState >> 2 & 1 == 1 {
+                self.batteryImageView.image = UIImage(named: "low")
+            } else if self.viewModel.bluetoothManager.powerState >> 3 & 1 == 1 {
+                self.batteryImageView.image = UIImage(named: "full")
+            } else {
+                self.batteryImageView.image = UIImage(named: "chargingFull")
+            }
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        titleLabel.title = "LIVE DATA"
         NotificationCenter.default.addObserver(self, selector: #selector(self.connect), name: NSNotification.Name(rawValue: "connect"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.disconnect), name: NSNotification.Name(rawValue: "disconnect"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.batt), name: NSNotification.Name(rawValue: "batt"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.getTime), name: NSNotification.Name(rawValue: "getTime"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.getTemp), name: NSNotification.Name(rawValue: "getTemp"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.getHum), name: NSNotification.Name(rawValue: "getHum"), object: nil)
@@ -194,13 +201,13 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         NotificationCenter.default.addObserver(self, selector: #selector(self.startInd), name: NSNotification.Name(rawValue: "startInd"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.readButtonNotHidden), name: NSNotification.Name(rawValue: "readButtonNotHidden"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.readButtonHidden), name: NSNotification.Name(rawValue: "readButtonHidden"), object: nil)
-//        NotificationCenter.default.addObserver(self, selector: #selector(self.setCount), name: NSNotification.Name(rawValue: "value"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.daysMeasurementTableViewLoad), name: NSNotification.Name(rawValue: "daysMeasurementTableViewLoad"), object: nil)
         ind.isHidden = true
         readButton.isHidden = true
         viewModel.readTimer()
         deviceTimeLabel.text = "--"
         bleImageView.image = UIImage(named: "ble_gray.png")
+        batteryImageView.isHidden = true
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -216,7 +223,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
     deinit {
-        print("deinit VC")
+        print("deinit LiveViewController")
     }
 }
 

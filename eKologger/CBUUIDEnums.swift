@@ -10,14 +10,42 @@ import CoreBluetooth
 
 var addToUUID = "-10AE-4C36-9A27-96BCD4C7F835"
 
+enum DeviceInformation {
+    static let serviceUUID = CBUUID(string: "180A")
+    static let description = "DeviceInformation"
+}
+
+enum ManufacturerNameString:CharacteristicProtocol {
+    static let characteristicUUID = CBUUID(string: "2A29")
+    static let description = "ManufacturerNameString"
+    static let readMetod = "string"
+    static let writeMetod = "no"
+}
+
+enum SerialNumberString:CharacteristicProtocol {
+    static let characteristicUUID = CBUUID(string: "2A25")
+    static let description = "SerialNumberString"
+    static let readMetod = "string"
+    static let writeMetod = "no"
+}
+
+enum FirmwareRevisionString:CharacteristicProtocol {
+    static let characteristicUUID = CBUUID(string: "2A26")
+    static let description = "FirmwareRevisionString"
+    static let readMetod = "string"
+    static let writeMetod = "no"
+}
+
+enum ModelNumberString:CharacteristicProtocol {
+    static let characteristicUUID = CBUUID(string: "2A24")
+    static let description = "ModelNumberString"
+    static let readMetod = "string"
+    static let writeMetod = "no"
+}
+
 enum DeviceIDAndState {
     static let serviceUUID = CBUUID(string: "00000100\(addToUUID)")
     static let description = "DeviceIDAndState"
-}
-
-enum LiveData {
-    static let serviceUUID = CBUUID(string: "00000500\(addToUUID)")
-    static let description = "LiveData"
 }
 
 enum DateTime:CharacteristicProtocol {
@@ -26,6 +54,33 @@ enum DateTime:CharacteristicProtocol {
     static let readMetod = "datetime"
     static let writeMetod = "datetime"
 }
+
+enum DEVICE_WORKMODE:CharacteristicProtocol {
+    static let characteristicUUID = CBUUID(string: "00000106\(addToUUID)")
+    static let description = "DEVICE_WORKMODE"
+    static let readMetod = "uint32"
+    static let writeMetod = "uint32"
+}
+
+//enum DISPLAY_SLEEP:CharacteristicProtocol {
+//    static let characteristicUUID = CBUUID(string: "00000107\(addToUUID)")
+//    static let description = "DISPLAY_SLEEP"
+//    static let readMetod = "uint8"
+//    static let writeMetod = "uint8"
+//}
+
+enum POWER_STATE:CharacteristicProtocol {
+    static let characteristicUUID = CBUUID(string: "00000104\(addToUUID)")
+    static let description = "POWER_STATE"
+    static let readMetod = "array"
+    static let writeMetod = "no"
+}
+
+enum LiveData {
+    static let serviceUUID = CBUUID(string: "00000500\(addToUUID)")
+    static let description = "LiveData"
+}
+
 
 enum Temp:CharacteristicProtocol {
     static let characteristicUUID = CBUUID(string: "00000504\(addToUUID)")
@@ -95,12 +150,12 @@ enum DEVICE_PERSISTENT_DATA_ACCESS_AND_CONTROL_UUID {
     static let description = "DEVICE_PERSISTENT_DATA_ACCESS_AND_CONTROL_UUID"
 }
 
-//enum PERSISTENT_NODE_COUNT:CharacteristicProtocol {
-//    static let characteristicUUID = CBUUID(string: "00000301\(addToUUID)")
-//    static let description = "PERSISTENT_NODE_COUNT"
-//    static let readMetod = "uint32"
-//    static let writeMetod = "uint32"
-//}
+enum PERSISTENT_NODE_COUNT:CharacteristicProtocol {
+    static let characteristicUUID = CBUUID(string: "00000301\(addToUUID)")
+    static let description = "PERSISTENT_NODE_COUNT"
+    static let readMetod = "no"
+    static let writeMetod = "uint8"
+}
 
 enum NODE_ACCESS_INDEX:CharacteristicProtocol {
     static let characteristicUUID = CBUUID(string: "00000302\(addToUUID)")
@@ -123,9 +178,25 @@ enum NODES_DATE:CharacteristicProtocol {
     static let writeMetod = "uint8"
 }
 
+//enum ENABLE_LOGGING:CharacteristicProtocol {
+//    static let characteristicUUID = CBUUID(string: "00000305\(addToUUID)")
+//    static let description = "ENABLE_LOGGING"
+//    static let readMetod = "uint8"
+//    static let writeMetod = "uint8"
+//}
+
+//enum LOGGING_INTERVAL:CharacteristicProtocol {
+//    static let characteristicUUID = CBUUID(string: "00000307\(addToUUID)")
+//    static let description = "LOGGING_INTERVAL"
+//    static let readMetod = "uint32"
+//    static let writeMetod = "uint32"
+//}
+
 extension CBService {
     func serviceDescription(service: CBService) -> String? {
         switch service.uuid {
+        case DeviceInformation.serviceUUID:
+            return DeviceInformation.description
         case DeviceIDAndState.serviceUUID:
             return DeviceIDAndState.description
         case LiveData.serviceUUID:
@@ -170,6 +241,20 @@ extension CBCharacteristic {
             return descrReadWrite(char: CURRENT_NODE_READ.self)
         case NODES_DATE.characteristicUUID:
             return descrReadWrite(char: NODES_DATE.self)
+        case DEVICE_WORKMODE.characteristicUUID:
+            return descrReadWrite(char: DEVICE_WORKMODE.self)
+        case PERSISTENT_NODE_COUNT.characteristicUUID:
+            return descrReadWrite(char: PERSISTENT_NODE_COUNT.self)
+        case ManufacturerNameString.characteristicUUID:
+            return descrReadWrite(char: ManufacturerNameString.self)
+        case SerialNumberString.characteristicUUID:
+            return descrReadWrite(char: SerialNumberString.self)
+        case FirmwareRevisionString.characteristicUUID:
+            return descrReadWrite(char: FirmwareRevisionString.self)
+        case ModelNumberString.characteristicUUID:
+            return descrReadWrite(char: ModelNumberString.self)
+        case POWER_STATE.characteristicUUID:
+            return descrReadWrite(char: POWER_STATE.self)
         default:
             return nil
         }

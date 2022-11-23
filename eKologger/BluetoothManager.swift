@@ -24,6 +24,14 @@ class BluetoothManager: NSObject {
         centralManager = CBCentralManager(delegate: self, queue: bluetoothManagerQueue)
     }
     
+    func disconnectPeripheral() {
+        if successfulConnectPeripheral != [] {
+            for peripheral in successfulConnectPeripheral {
+                centralManager.cancelPeripheralConnection(peripheral)
+            }
+        }
+    }
+    
     func connectPeripheral() {
         centralManager.scanForPeripherals(withServices: nil)
     }
@@ -48,9 +56,19 @@ class BluetoothManager: NSObject {
     var temp2: Float = 0
     var hum2: Float = 0
     var press2: Float = 0
-    var speed: Float = 0
-    var speed2: Float = 0
+    var speed: Float? = nil
+    var speed2: Float? = nil
     var tns: Float = 0
-    var test: [UInt8] = []
+    var powerState: UInt8 = 0
+    var enable_logging: Int? = nil
+    var logging_interval: Int? = nil
+    var display_sleep: Int? = nil
+    var heater_enabled1: Int? = nil
+    var heater_enabled2: Int? = nil
+    var manufacturerNameString = ""
+    var serialNumberString = ""
+    var firmwareRevisionString = ""
+    var modelNumberString = ""
+    var device_workmode: UInt32? = nil
 }
 

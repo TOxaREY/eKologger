@@ -1,20 +1,20 @@
 //
-//  NotMeasureAlert.swift
+//  NotSettingsAlert.swift
 //  eKologger
 //
-//  Created by Alexey Golovanov on 27.10.2022.
+//  Created by Alexey Golovanov on 28.10.2022.
 //
 
 import UIKit
 
 
-class NotMeasureAlert {
+class NotSettingsAlert {
     
-    func notMeasureAlert(vc: UIViewController) {
+    func notSettingsAlert(vc: UIViewController) {
         var messageFont: [NSAttributedString.Key : NSObject]
 
             messageFont = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 15, weight: UIFont.Weight.semibold), NSAttributedString.Key.foregroundColor: UIColor.white]
-        let messageString = "На эту дату нет сохраненных измерений"
+        let messageString = "Настройки ещё не загружены"
         let messageAttrString = NSMutableAttributedString(string: messageString, attributes: messageFont)
         let titleString = "ВНИМАНИЕ"
         let dialogWindow = UIAlertController(title: titleString, message: "", preferredStyle: .alert)

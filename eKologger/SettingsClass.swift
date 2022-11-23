@@ -124,6 +124,14 @@ class SettingsClass {
         }
     }
     
+    func writeSpeed(bluetoothManager: BluetoothManager, value: UInt8) {
+        for characteristic in bluetoothManager.allCharacteristics {
+            if characteristic.uuid == Speed.characteristicUUID {
+                    bluetoothManager.successfulConnectPeripheral[0].writeValue(bluetoothManager.writeData.writeData(value: value, char: characteristic), for: characteristic, type: .withResponse)
+            }
+        }
+    }
+    
     func readSpeed2(characteristic: CBCharacteristic, peripheral: CBPeripheral) {
         if characteristic.uuid == Speed2.characteristicUUID {
             peripheral.readValue(for: characteristic)
@@ -134,6 +142,14 @@ class SettingsClass {
         if characteristic.uuid == Speed2.characteristicUUID {
             bluetoothManager.speed2 = (bluetoothManager.readData.readData(data: valueCharacterictic, char: characteristic, per: peripheral, bluetoothManager: bluetoothManager) as! Float)
             NotificationCenter.default.post(name: NSNotification.Name(rawValue: "getSpeed2"), object: nil)
+        }
+    }
+    
+    func writeSpeed2(bluetoothManager: BluetoothManager, value: UInt8) {
+        for characteristic in bluetoothManager.allCharacteristics {
+            if characteristic.uuid == Speed2.characteristicUUID {
+                    bluetoothManager.successfulConnectPeripheral[0].writeValue(bluetoothManager.writeData.writeData(value: value, char: characteristic), for: characteristic, type: .withResponse)
+            }
         }
     }
     
@@ -176,10 +192,10 @@ class SettingsClass {
         }
     }
     
-    func writeCURRENT_NODE_READ(bluetoothManager: BluetoothManager, date: Int64) {
+    func writeCURRENT_NODE_READ(bluetoothManager: BluetoothManager, value: Int64) {
         for characteristic in bluetoothManager.allCharacteristics {
             if characteristic.uuid == CURRENT_NODE_READ.characteristicUUID {
-                    bluetoothManager.successfulConnectPeripheral[0].writeValue(bluetoothManager.writeData.writeData(value: date, char: characteristic), for: characteristic, type: .withResponse)
+                    bluetoothManager.successfulConnectPeripheral[0].writeValue(bluetoothManager.writeData.writeData(value: value, char: characteristic), for: characteristic, type: .withResponse)
             }
         }
     }
@@ -204,8 +220,189 @@ class SettingsClass {
         }
     }
     
+//    func readENABLE_LOGGING(characteristic: CBCharacteristic, peripheral: CBPeripheral) {
+//        if characteristic.uuid == ENABLE_LOGGING.characteristicUUID {
+//            peripheral.readValue(for: characteristic)
+//        }
+//    }
+//
+//    func addENABLE_LOGGING(characteristic: CBCharacteristic, peripheral: CBPeripheral, bluetoothManager: BluetoothManager, valueCharacterictic: Data) {
+//        if characteristic.uuid == ENABLE_LOGGING.characteristicUUID {
+//            bluetoothManager.enable_logging = (bluetoothManager.readData.readData(data: valueCharacterictic, char: characteristic, per: peripheral, bluetoothManager: bluetoothManager) as! UInt8)
+//        }
+//    }
+//
+//    func writeENABLE_LOGGING(bluetoothManager: BluetoothManager, value: UInt8) {
+//        for characteristic in bluetoothManager.allCharacteristics {
+//            if characteristic.uuid == ENABLE_LOGGING.characteristicUUID {
+//                    bluetoothManager.successfulConnectPeripheral[0].writeValue(bluetoothManager.writeData.writeData(value: value, char: characteristic), for: characteristic, type: .withResponse)
+//            }
+//        }
+//    }
     
+//    func readLOGGING_INTERVAL(characteristic: CBCharacteristic, peripheral: CBPeripheral) {
+//        if characteristic.uuid == LOGGING_INTERVAL.characteristicUUID {
+//            peripheral.readValue(for: characteristic)
+//        }
+//    }
+//
+//    func addLOGGING_INTERVAL(characteristic: CBCharacteristic, peripheral: CBPeripheral, bluetoothManager: BluetoothManager, valueCharacterictic: Data) {
+//        if characteristic.uuid == LOGGING_INTERVAL.characteristicUUID {
+//            bluetoothManager.logging_interval = (bluetoothManager.readData.readData(data: valueCharacterictic, char: characteristic, per: peripheral, bluetoothManager: bluetoothManager) as! UInt32)
+//        }
+//    }
+//
+//    func writeLOGGING_INTERVAL(bluetoothManager: BluetoothManager, value: UInt32) {
+//        for characteristic in bluetoothManager.allCharacteristics {
+//            if characteristic.uuid == LOGGING_INTERVAL.characteristicUUID {
+//                    bluetoothManager.successfulConnectPeripheral[0].writeValue(bluetoothManager.writeData.writeData(value: value, char: characteristic), for: characteristic, type: .withResponse)
+//            }
+//        }
+//    }
+    
+    func writePERSISTENT_NODE_COUNT(bluetoothManager: BluetoothManager) {
+        for characteristic in bluetoothManager.allCharacteristics {
+            if characteristic.uuid == PERSISTENT_NODE_COUNT.characteristicUUID {
+                    bluetoothManager.successfulConnectPeripheral[0].writeValue(bluetoothManager.writeData.writeData(value: UInt8(0), char: characteristic), for: characteristic, type: .withResponse)
+            }
+        }
+    }
+    
+//    func readDISPLAY_SLEEP(characteristic: CBCharacteristic, peripheral: CBPeripheral) {
+//        if characteristic.uuid == DISPLAY_SLEEP.characteristicUUID {
+//            peripheral.readValue(for: characteristic)
+//        }
+//    }
+//
+//    func addDISPLAY_SLEEP(characteristic: CBCharacteristic, peripheral: CBPeripheral, bluetoothManager: BluetoothManager, valueCharacterictic: Data) {
+//        if characteristic.uuid == DISPLAY_SLEEP.characteristicUUID {
+//            bluetoothManager.display_sleep = (bluetoothManager.readData.readData(data: valueCharacterictic, char: characteristic, per: peripheral, bluetoothManager: bluetoothManager) as! UInt8)
+//        }
+//    }
+//
+//    func writeDISPLAY_SLEEP(bluetoothManager: BluetoothManager, value: UInt8) {
+//        for characteristic in bluetoothManager.allCharacteristics {
+//            if characteristic.uuid == DISPLAY_SLEEP.characteristicUUID {
+//                    bluetoothManager.successfulConnectPeripheral[0].writeValue(bluetoothManager.writeData.writeData(value: value, char: characteristic), for: characteristic, type: .withResponse)
+//            }
+//        }
+//    }
+    
+    func readManufacturerNameString(characteristic: CBCharacteristic, peripheral: CBPeripheral) {
+        if characteristic.uuid == ManufacturerNameString.characteristicUUID {
+            peripheral.readValue(for: characteristic)
+        }
+    }
+    
+    func addManufacturerNameString(characteristic: CBCharacteristic, peripheral: CBPeripheral, bluetoothManager: BluetoothManager, valueCharacterictic: Data) {
+        if characteristic.uuid == ManufacturerNameString.characteristicUUID {
+            bluetoothManager.manufacturerNameString = (bluetoothManager.readData.readData(data: valueCharacterictic, char: characteristic, per: peripheral, bluetoothManager: bluetoothManager) as! String)
+        }
+    }
+    
+    func readSerialNumberString(characteristic: CBCharacteristic, peripheral: CBPeripheral) {
+        if characteristic.uuid == SerialNumberString.characteristicUUID {
+            peripheral.readValue(for: characteristic)
+        }
+    }
+    
+    func addSerialNumberString(characteristic: CBCharacteristic, peripheral: CBPeripheral, bluetoothManager: BluetoothManager, valueCharacterictic: Data) {
+        if characteristic.uuid == SerialNumberString.characteristicUUID {
+            bluetoothManager.serialNumberString = (bluetoothManager.readData.readData(data: valueCharacterictic, char: characteristic, per: peripheral, bluetoothManager: bluetoothManager) as! String)
+        }
+    }
+    
+    func readFirmwareRevisionString(characteristic: CBCharacteristic, peripheral: CBPeripheral) {
+        if characteristic.uuid == FirmwareRevisionString.characteristicUUID {
+            peripheral.readValue(for: characteristic)
+        }
+    }
+    
+    func addFirmwareRevisionString(characteristic: CBCharacteristic, peripheral: CBPeripheral, bluetoothManager: BluetoothManager, valueCharacterictic: Data) {
+        if characteristic.uuid == FirmwareRevisionString.characteristicUUID {
+            bluetoothManager.firmwareRevisionString = (bluetoothManager.readData.readData(data: valueCharacterictic, char: characteristic, per: peripheral, bluetoothManager: bluetoothManager) as! String)
+        }
+    }
+    
+    func readModelNumberString(characteristic: CBCharacteristic, peripheral: CBPeripheral) {
+        if characteristic.uuid == ModelNumberString.characteristicUUID {
+            peripheral.readValue(for: characteristic)
+        }
+    }
+    
+    func addModelNumberString(characteristic: CBCharacteristic, peripheral: CBPeripheral, bluetoothManager: BluetoothManager, valueCharacterictic: Data) {
+        if characteristic.uuid == ModelNumberString.characteristicUUID {
+            bluetoothManager.modelNumberString = (bluetoothManager.readData.readData(data: valueCharacterictic, char: characteristic, per: peripheral, bluetoothManager: bluetoothManager) as! String)
+        }
+    }
+    
+    func addPOWER_STATE(characteristic: CBCharacteristic, peripheral: CBPeripheral, bluetoothManager: BluetoothManager, valueCharacterictic: Data) {
+        if characteristic.uuid == POWER_STATE.characteristicUUID {
+            bluetoothManager.powerState = (bluetoothManager.readData.readData(data: valueCharacterictic, char: characteristic, per: peripheral, bluetoothManager: bluetoothManager) as! [UInt8]).last!
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "batt"), object: nil)
+        }
+    }
+    
+        func readDEVICE_WORKMODE(characteristic: CBCharacteristic, peripheral: CBPeripheral) {
+            if characteristic.uuid == DEVICE_WORKMODE.characteristicUUID {
+                peripheral.readValue(for: characteristic)
+            }
+        }
+    
+        func addDEVICE_WORKMODE(characteristic: CBCharacteristic, peripheral: CBPeripheral, bluetoothManager: BluetoothManager, valueCharacterictic: Data) {
+            if characteristic.uuid == DEVICE_WORKMODE.characteristicUUID {
+                bluetoothManager.device_workmode = (bluetoothManager.readData.readData(data: valueCharacterictic, char: characteristic, per: peripheral, bluetoothManager: bluetoothManager) as! UInt32)
+                bluetoothManager.enable_logging = deviceWorkmodeRead(setting: bluetoothManager.device_workmode!).log_enabl
+                bluetoothManager.logging_interval = deviceWorkmodeRead(setting: bluetoothManager.device_workmode!).log_inter
+                bluetoothManager.display_sleep = deviceWorkmodeRead(setting: bluetoothManager.device_workmode!).dis_sle
+                bluetoothManager.heater_enabled1 = deviceWorkmodeRead(setting: bluetoothManager.device_workmode!).heat_enabl1
+                bluetoothManager.heater_enabled2 = deviceWorkmodeRead(setting: bluetoothManager.device_workmode!).heat_enabl2
+            }
+        }
+    
+        func writeDEVICE_WORKMODE(bluetoothManager: BluetoothManager) {
+            for characteristic in bluetoothManager.allCharacteristics {
+                if characteristic.uuid == DEVICE_WORKMODE.characteristicUUID {
+                    bluetoothManager.successfulConnectPeripheral[0].writeValue(bluetoothManager.writeData.writeData(value: deviceWorkmodeWrite(logging_enabled: bluetoothManager.enable_logging!, loggging_interval: bluetoothManager.logging_interval!, display_sleep: bluetoothManager.display_sleep!, heater_enabled1: bluetoothManager.heater_enabled1!, heater_enabled2: bluetoothManager.heater_enabled2!), char: characteristic), for: characteristic, type: .withResponse)
+                }
+            }
+        }
+
     private func arraySlice(m: Int, n: Int, arrayIn: [UInt8]) -> [UInt8] {
         return [UInt8](arrayIn[m...n])
+    }
+    
+    private func pad(string : String, toSize: Int) -> String {
+        var padded = string
+        for _ in 0..<(toSize - string.count) {
+            padded = "0" + padded
+        }
+        return padded
+    }
+    
+    private func deviceWorkmodeRead(setting: UInt32) -> (log_enabl: Int, log_inter: Int, dis_sle: Int, heat_enabl1: Int, heat_enabl2: Int) {
+        let b: String = pad(string: String(setting, radix: 2), toSize: 32)
+        let logging_enabled = Int(String(b.last!))!
+        let start = b.index(b.startIndex, offsetBy: 3)
+        let end = b.index(b.endIndex, offsetBy: -1)
+        let range = start..<end
+        let substring = b[range]
+        let loggging_interval = Int(String(substring), radix: 2)!
+        let display_sleep = Int(String(Array(b)[2]))!
+        let heater_enabled1 = Int(String(Array(b)[1]))!
+        let heater_enabled2 = Int(String(Array(b)[0]))!
+        
+        return (logging_enabled, loggging_interval, display_sleep, heater_enabled1, heater_enabled2)
+    }
+    
+    private func deviceWorkmodeWrite(logging_enabled: Int, loggging_interval: Int, display_sleep: Int, heater_enabled1: Int, heater_enabled2: Int) -> UInt32 {
+        var uint32String = ""
+        uint32String.append(String(heater_enabled2))
+        uint32String.append(String(heater_enabled1))
+        uint32String.append(String(display_sleep))
+        uint32String.append(pad(string: String(loggging_interval, radix: 2), toSize: 28))
+        uint32String.append(String(logging_enabled))
+        
+        return UInt32(strtoul(uint32String, nil, 2))
     }
 }

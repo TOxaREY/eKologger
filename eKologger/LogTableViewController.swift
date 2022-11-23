@@ -1,5 +1,5 @@
 //
-//  TableViewController.swift
+//  LogTableViewController.swift
 //  eKologger
 //
 //  Created by Alexey Golovanov on 26.10.2022.
@@ -7,13 +7,17 @@
 
 import UIKit
 
-class TableViewController: UITableViewController {
+class LogTableViewController: UITableViewController {
     
     var viewModel = ViewModel()
+    
+    @IBOutlet weak var titleLabel: UINavigationItem!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        titleLabel.title = "LOG"
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -26,6 +30,6 @@ class TableViewController: UITableViewController {
     
     deinit {
         dataDevice.removeAll()
-        print("deinit TableVC")
+        print("deinit LogTableViewController")
     }
 }

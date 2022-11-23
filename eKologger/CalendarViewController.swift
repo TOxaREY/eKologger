@@ -1,5 +1,5 @@
 //
-//  ViewController2.swift
+//  CalendarViewController.swift
 //  eKologger
 //
 //  Created by Alexey Golovanov on 27.10.2022.
@@ -7,12 +7,13 @@
 
 import UIKit
 
-class ViewController2: UIViewController {
+class CalendarViewController: UIViewController {
     
     var viewModel = ViewModel()
     
     var pick = Bool()
 
+    @IBOutlet weak var titleLabel: UINavigationItem!
     @IBOutlet weak var ind: UIActivityIndicatorView!
     @IBOutlet weak var pickerDate: UIDatePicker!
     @IBAction func pickerDate(_ sender: Any) {
@@ -20,7 +21,7 @@ class ViewController2: UIViewController {
     }
     
     @IBAction func deleteFromDB(_ sender: Any) {
-        viewModel.bluetoothManager.deleteDataFromDB.deleteDataFromDB(db: viewModel.bluetoothManager.sqliteDB)
+        viewModel.resetAllSmartAlert.resetAllSmartAlert(vc: self, viewModel: viewModel)
     }
     @objc func alert() {
         DispatchQueue.main.async {
@@ -53,6 +54,7 @@ class ViewController2: UIViewController {
 
         ind.isHidden = true
         pick = false
+        titleLabel.title = "CALENDAR"
         
         NotificationCenter.default.addObserver(self, selector: #selector(self.alert), name: NSNotification.Name(rawValue: "alert"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.segue), name: NSNotification.Name(rawValue: "segue"), object: nil)
@@ -68,6 +70,6 @@ class ViewController2: UIViewController {
     }
     
     deinit {
-        print("deinit VC2")
+        print("deinit CalendarViewController")
     }
 }

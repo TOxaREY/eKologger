@@ -25,7 +25,7 @@ extension BluetoothManager: CBCentralManagerDelegate {
             print("central.state is .poweredOff")
         case .poweredOn:
             print("central.state is .poweredOn")
-            centralManager.scanForPeripherals(withServices: nil)
+//            centralManager.scanForPeripherals(withServices: nil)
         @unknown default:
             print("fatalError")
         }
@@ -50,12 +50,14 @@ extension BluetoothManager: CBCentralManagerDelegate {
     
     func centralManager(_ central: CBCentralManager, didConnect peripheral: CBPeripheral) {
         print("connect \(peripheral.identifier)")
+        connected = true
         peripheral.discoverServices(nil)
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: "connect"), object: nil)
     }
     
     func centralManager(_ central: CBCentralManager, didDisconnectPeripheral peripheral: CBPeripheral, error: Error?) {
         print("disconnect \(peripheral.identifier)")
+        connected = false
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: "disconnect"), object: nil)
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: "readButtonHidden"), object: nil)
         print(error ?? "нет описания")
@@ -63,8 +65,16 @@ extension BluetoothManager: CBCentralManagerDelegate {
         successfulConnectPeripheral = successfulConnectPeripheral.filter({$0 != peripheral})
         successfulUiid = successfulUiid.filter({$0 != peripheral.identifier.uuidString})
         allCharacteristics = []
-        sleep(3)
-        centralManager.scanForPeripherals(withServices: nil)
+        logging_interval = nil
+        enable_logging = nil
+        speed = nil
+        speed2 = nil
+        if offConnection {
+            offConnection = false
+        } else {
+            sleep(3)
+            centralManager.scanForPeripherals(withServices: nil)
+        }
     }
 }
 
@@ -88,39 +98,30 @@ extension BluetoothManager: CBPeripheralDelegate  {
             if characteristic.uuid == Temp.characteristicUUID {
                 peripheral.setNotifyValue(true, for: characteristic)
             }
-//            settingsClass.readTemp(characteristic: characteristic, peripheral: peripheral)
             if characteristic.uuid == Hum.characteristicUUID {
                 peripheral.setNotifyValue(true, for: characteristic)
             }
-//            settingsClass.readHum(characteristic: characteristic, peripheral: peripheral)
             if characteristic.uuid == Press.characteristicUUID {
                 peripheral.setNotifyValue(true, for: characteristic)
             }
-//            settingsClass.readPress(characteristic: characteristic, peripheral: peripheral)
             if characteristic.uuid == Temp2.characteristicUUID {
                 peripheral.setNotifyValue(true, for: characteristic)
             }
-//            settingsClass.readTemp2(characteristic: characteristic, peripheral: peripheral)
             if characteristic.uuid == Hum2.characteristicUUID {
                 peripheral.setNotifyValue(true, for: characteristic)
             }
-//            settingsClass.readHum2(characteristic: characteristic, peripheral: peripheral)
             if characteristic.uuid == Press2.characteristicUUID {
                 peripheral.setNotifyValue(true, for: characteristic)
             }
-//            settingsClass.readPress2(characteristic: characteristic, peripheral: peripheral)
             if characteristic.uuid == Speed.characteristicUUID {
                 peripheral.setNotifyValue(true, for: characteristic)
             }
-//            settingsClass.readSpeed(characteristic: characteristic, peripheral: peripheral)
             if characteristic.uuid == Speed2.characteristicUUID {
                 peripheral.setNotifyValue(true, for: characteristic)
             }
-//            settingsClass.readSpeed2(characteristic: characteristic, peripheral: peripheral)
             if characteristic.uuid == Tns.characteristicUUID {
                 peripheral.setNotifyValue(true, for: characteristic)
             }
-//            settingsClass.readTns(characteristic: characteristic, peripheral: peripheral)
             if characteristic.uuid == CURRENT_NODE_READ.characteristicUUID {
                 peripheral.setNotifyValue(true, for: characteristic)
             }
@@ -128,6 +129,18 @@ extension BluetoothManager: CBPeripheralDelegate  {
             if characteristic.uuid == NODES_DATE.characteristicUUID {
                 peripheral.setNotifyValue(true, for: characteristic)
                 NotificationCenter.default.post(name: NSNotification.Name(rawValue: "readButtonNotHidden"), object: nil)
+            }
+//            settingsClass.readENABLE_LOGGING(characteristic: characteristic, peripheral: peripheral)
+//            settingsClass.readLOGGING_INTERVAL(characteristic: characteristic, peripheral: peripheral)
+//            settingsClass.readDISPLAY_SLEEP(characteristic: characteristic, peripheral: peripheral)
+            settingsClass.readManufacturerNameString(characteristic: characteristic, peripheral: peripheral)
+            settingsClass.readSerialNumberString(characteristic: characteristic, peripheral: peripheral)
+            settingsClass.readFirmwareRevisionString(characteristic: characteristic, peripheral: peripheral)
+            settingsClass.readModelNumberString(characteristic: characteristic, peripheral: peripheral)
+            settingsClass.readDEVICE_WORKMODE(characteristic: characteristic, peripheral: peripheral)
+            
+            if characteristic.uuid == POWER_STATE.characteristicUUID {
+                peripheral.setNotifyValue(true, for: characteristic)
             }
         }
     }
@@ -148,6 +161,15 @@ extension BluetoothManager: CBPeripheralDelegate  {
         settingsClass.addTns(characteristic: characteristic, peripheral: peripheral, bluetoothManager: self, valueCharacterictic: valueCharacterictic)
         settingsClass.addCURRENT_NODE_READ(characteristic: characteristic, peripheral: peripheral, bluetoothManager: self, valueCharacterictic: valueCharacterictic)
         settingsClass.addNODES_DATE(characteristic: characteristic, peripheral: peripheral, bluetoothManager: self, valueCharacterictic: valueCharacterictic)
+//        settingsClass.addENABLE_LOGGING(characteristic: characteristic, peripheral: peripheral, bluetoothManager: self, valueCharacterictic: valueCharacterictic)
+//        settingsClass.addLOGGING_INTERVAL(characteristic: characteristic, peripheral: peripheral, bluetoothManager: self, valueCharacterictic: valueCharacterictic)
+//        settingsClass.addDISPLAY_SLEEP(characteristic: characteristic, peripheral: peripheral, bluetoothManager: self, valueCharacterictic: valueCharacterictic)
+        settingsClass.addManufacturerNameString(characteristic: characteristic, peripheral: peripheral, bluetoothManager: self, valueCharacterictic: valueCharacterictic)
+        settingsClass.addSerialNumberString(characteristic: characteristic, peripheral: peripheral, bluetoothManager: self, valueCharacterictic: valueCharacterictic)
+        settingsClass.addFirmwareRevisionString(characteristic: characteristic, peripheral: peripheral, bluetoothManager: self, valueCharacterictic: valueCharacterictic)
+        settingsClass.addModelNumberString(characteristic: characteristic, peripheral: peripheral, bluetoothManager: self, valueCharacterictic: valueCharacterictic)
+        settingsClass.addPOWER_STATE(characteristic: characteristic, peripheral: peripheral, bluetoothManager: self, valueCharacterictic: valueCharacterictic)
+        settingsClass.addDEVICE_WORKMODE(characteristic: characteristic, peripheral: peripheral, bluetoothManager: self, valueCharacterictic: valueCharacterictic)
     }
     
     
